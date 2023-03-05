@@ -1,24 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, React } from 'react'
+import Tallies from 'tallies';
 
-function App() {
+function App () {
+  const [randomNum, setRandomNum] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <button onClick={()=>setRandomNum(Math.floor(Math.random()*101))}>PUSH ME</button>
+    <p>{randomNum}</p>
+    <Tallies number={randomNum} textColor={'red'} textSize={'4rem'} lineStyle={'wavy'} strikeThroughColor={'green'} font={'Tilt Warp'} />
+    </>
   );
 }
 
